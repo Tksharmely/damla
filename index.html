@@ -164,9 +164,11 @@
 					</div>
 				</div>
 			</div>
+<audio id="bgMusic" src="aud.mp3"></audio>
 
 </body>
 <script>
+let music = document.getElementById("bgMusic");
 let datetxt = "22 Şubat";
 let titleText = "Damla, 💖";
 let messageText = "Hayatım… Sen benim için gerçekten çok özel birisin. Hayatıma girdiğin gün için içimden hep şükrediyorum. Varlığın, gülüşün, enerjin… Hepsi dünyamı güzelleştiriyor. Bugün senin günün. Sana sağlık, huzur, başarı ve kalbinin istediği her şeyin gerçekleşmesini diliyorum. Hayatın boyunca hep güçlü, mutlu ve ışıl ışıl ol. İyi ki doğdun sevgilim. Nice doğum günlerini birlikte, yan yana, el ele kutlayalım. 💕💕 - Arda";
@@ -208,10 +210,16 @@ function typeDate() {
 
 // 9.5 saniyede başlat (CSS animasyonla uyumlu)
 setTimeout(typeDate, 9500);
-	
+
+if (window.innerWidth < 768) {
+    document.querySelector('.boxMail-container').classList.add('mobile-open');
+}
+
 mailBox.onclick = function () {
     boxMail.classList.add('active');
-
+	music.play();
+	music.volume = 0.5;
+	document.getElementById("wrapper").classList.add("blur");
     titleElement.textContent = "";
     messageElement.textContent = "";
     titleIndex = 0;
@@ -240,7 +248,11 @@ function typeMessage() {
 
 closeBtn.addEventListener('click', function () {
     boxMail.classList.remove('active');
+	document.getElementById("wrapper").classList.remove("blur");
+	music.pause();
+	music.currentTime = 0;
 });
+
 </script>
 
 </html>
