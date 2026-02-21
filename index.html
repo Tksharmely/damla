@@ -219,7 +219,6 @@ mailBox.onclick = function () {
     boxMail.classList.add('active');
 	music.play();
 	music.volume = 0.5;
-	document.getElementById("wrapper").classList.add("blur");
     titleElement.textContent = "";
     messageElement.textContent = "";
     titleIndex = 0;
@@ -247,7 +246,6 @@ function typeMessage() {
 }
 
 closeBtn.addEventListener('click', function () {
-    boxMail.classList.remove('active');
 	document.getElementById("wrapper").classList.remove("blur");
 	music.pause();
 	music.currentTime = 0;
