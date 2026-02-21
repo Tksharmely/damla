@@ -1133,7 +1133,11 @@ body {
         height: 420px;
         flex-direction: column;
     }
-
+	
+	.boxMail.active .card1 {
+		display: none;
+	}
+	
     .boxMail .boxMail-container .card1,
     .boxMail .boxMail-container .card2 {
         width: 100%;
@@ -1161,6 +1165,11 @@ body {
 
     .boxMail .boxMail-container:hover .card1 {
         transform: none;
+    }
+}
+@media (max-width:768px) {
+    .boxMail.active .card1 {
+        transform: translateY(-140%);
     }
 }
 .boxMail-container.mobile-open .card1{
